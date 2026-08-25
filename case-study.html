@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="邓洁产品经理作品集案例详情">
+    <title>项目案例 | 邓洁 · 产品经理</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- 主题初始化脚本(防止闪烁) -->
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme') || 'light';
+            if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        })();
+    </script>
+</head>
+<body class="case-page">
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop" aria-label="返回顶部">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
+    <!-- 主题切换按钮 -->
+    <button class="theme-toggle case-theme-toggle" id="themeToggle" aria-label="切换深色/浅色主题">
+        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <main class="case-page-main">
+        <div class="case-page-shell">
+            <a class="case-back" href="index.html#portfolio">← 返回作品集</a>
+            <header class="case-page-header">
+                <span class="case-page-kicker" id="caseKicker">CASE STUDY</span>
+                <h1 id="caseTitle">项目案例</h1>
+                <p id="caseSummary"></p>
+                <div class="case-page-tags" id="caseTags"></div>
+            </header>
+            <article class="case-page-content" id="caseContent"></article>
+        </div>
+    </main>
+    <script>
+        const cases = {
+            "ai-evaluation": {
+                index: "01", title: "可信 AI 评估系统", category: "AI 产品 · 从 0 到 1",
+                summary: "建立统一评估标准与自动化能力，为 AI 平台选型、内容质量监控及合规风控提供数据支撑。",
+                tags: ["Opik 框架", "裁判大模型", "多智能体"],
+                metrics: [["多平台", "AI 数据统一接入与管理"], ["自动化", "标准化评估替代人工抽检"]],
+                intro: "为中企建设统一的可信 AI 评估系统。系统将各业务场景下分散的 AI 平台数据集中管理，通过可配置的指标与裁判模型，对 AI 输出内容进行持续、标准化的质量评估。",
+                shot: "ai", shotImages: [
+                    ["credible-ai-task-management.png", "评估任务管理"],
+                    ["credible-ai-create-task.png", "新增评估任务"],
+                    ["credible-ai-evaluation-object-config.png", "评估对象配置"],
+                    ["credible-ai-evaluation-results.png", "综合与分项评估结果"]
+                ], shotArchitecture: "credible-ai-system-architecture.png", shotFeatureArchitecture: "credible-ai-feature-architecture.png",
+                problems: ["中企内部多平台 AI 输出质量参差不齐，缺少统一评估标尺。", "人工抽检覆盖有限，难以支持常态化质量监控与横向对比。", "平台选型、合规风控和优化迭代缺乏结构化数据支撑。"],
+                role: ["负责从 0 到 1 的产品规划、原型与 PRD 输出。", "对接中企业务方及多个 AI 平台，梳理数据接入、评估指标和报告需求。", "协调研发落地统一接入、中间层调度及模型配置能力。"],
+                output: ["建立统一接入规范，支持中企内部各 AI 平台数据集中管理与复用，并可灵活配置被评估对象和评估场景。", "结合 Opik 框架内置评估指标与裁判大模型能力，对 AI 应用输出进行统一量化评判与结构化处理，输出评估报告。", "支持通过 OpenAI 协议接入裁判大模型，并经由中间层接入多智能体统一管理与调度；可按场景灵活选用不同裁判模型或智能体自动化打分，替代人工抽检。"]
+            },
+            "ai-marketing": {
+                index: "02", title: "汉全 AI 营销系统", category: "AI 产品 · 迭代升级",
+                summary: "为 B2B 企业构建 AI 获客与数字员工解决方案，实现私域运营自动化与 24 小时无人值守增长。",
+                tags: ["RPA 自动化", "AI 获客", "微信机器人"],
+                metrics: [["+50%", "客户获客效率提升"], ["500万+", "标杆客户年签单额"]],
+                intro: "面向 B2B 企业的 AI 获客与数字员工系统，基于 Android 端 RPA 命令执行能力，整合主动获客、微信机器人、群发与 SOP 跟进等模块，形成可规模化执行的私域运营解决方案。",
+                shot: "marketing", problems: ["B2B 获客成本高，线索挖掘和跟进依赖人工操作。", "私域运营流程分散，多账号管理与标准化执行成本高。", "企业需要稳定、可配置的无人值守运营机制。"],
+                role: ["负责产品规划、需求迭代与全流程推进。", "调研 B2B 获客及私域运营场景，梳理客户反馈与功能优先级。", "输出迭代方案，协同研发、运营完成系统落地与推广。"],
+                output: ["搭建主动获客引擎，基于关键词匹配精准捕获潜在客户线索，系统自动执行好友添加，替代人工搜索与逐一添加，有效降低获客成本，帮助客户提升获客效率 50%。", "基于 RPA 的 UI 自动化模拟真人操作，打通微信机器人、群发、朋友圈营销、自动加微、智能对话与 SOP 跟进等全流程运营动作，支持一人多号管理。", "标杆客户皇宝国际集团使用系统后，通过 AI 精准营销与线索高效转化，一年内成功签单额突破 500 万元；系统支持 24 小时无人值守运营，实现私域运营规模化。"]
+            },
+            "smart-pillow": {
+                index: "03", title: "智能枕头闹铃系统 APP", category: "智能硬件 · 从 0 到 1",
+                summary: "连接智能枕头硬件与移动端，通过 BLE 通信、闹钟配置和参数控制，构建稳定易用的 IoT 使用体验。",
+                tags: ["React Native", "BLE 蓝牙", "IoT"],
+                metrics: [["双通道", "软硬件协同保障唤醒可靠性"], ["自动对账", "重连即同步，保障数据一致"]],
+                intro: "为智能枕头硬件配套的移动端应用，通过 BLE 低功耗蓝牙建立连接，支持设备配网、闹钟设置及参数调节，并围绕断连、重连与唤醒可靠性设计软硬件协同机制。",
+                shot: "pillow", problems: ["硬件与手机需保持稳定蓝牙连接，并支持设备配网与参数配置。", "单一闹钟通道存在失效风险，影响用户对产品的信任。", "断连重连后两端闹钟数据可能不一致。"],
+                role: ["负责 APP 端产品方案、原型与 PRD 输出。", "对接硬件团队，梳理蓝牙通信能力和设备配置边界。", "借助 AI 辅助完成原型设计、需求拆解与文档交付。"],
+                output: ["完成 BLE 低功耗蓝牙通信方案：手机作为中心设备发起连接，枕头作为外围设备广播并响应，降低使用门槛，覆盖设备配网、闹钟设置与参数调节。", "创新设计“双通道唤醒”方案：闹钟同时写入硬件与手机系统级定时任务，任一通道到点即可唤醒，避免单通道失效导致闹钟不响。", "建立“重连即对账”规则，蓝牙断开重连后 APP 自动同步全部闹钟至设备，确保两端数据完全一致；将需求拆解为蓝牙通信指令清单与硬件团队对齐。"]
+            },
+            "marketplace": {
+                index: "04", title: "研祥跳蚤商城", category: "电商系统 · 从 0 到 1",
+                summary: "面向实物与虚拟商品交易场景，打通差异化履约、营销配置及多渠道对账结算的自动化闭环。",
+                tags: ["兑换码系统", "规则引擎", "自动对账"],
+                metrics: [["全链路", "虚拟商品自动核销与交付"], ["自动化", "多渠道对账与差异结算"]],
+                intro: "支持实物与虚拟商品交易的平台，围绕兑换码、差异化履约、营销规则及多渠道对账结算，构建从下单、交付到财务结算的自动化交易闭环。",
+                shot: "marketplace", problems: ["实物与虚拟商品需支持差异化履约，虚拟商品交付高度依赖人工。", "营销规则缺少可配置能力，难以兼顾优先级、互斥和预算控制。", "多渠道、多商户对账依赖人工 Excel，结算效率与准确性受限。"],
+                role: ["负责兑换、营销及财务模块的原型设计与 PRD 输出。", "对接业务方，梳理交易、营销与结算的核心规则和边界。", "推动 API、Webhook、规则引擎及双账单方案的产品落地。"],
+                output: ["设计兑换码全链路系统：用户下单自动生成唯一兑换码，通过 Rest API 对接甲方系统完成自动核销与交付，并以 Webhook 回传状态、触发自动发货。", "基于规则引擎建设可灵活配置的营销工具体系，覆盖优惠券、满减、组合促销；系统按优先级与互斥逻辑计算优惠，并支持预算熔断、退款自动返还与风控防刷。", "设计商户与平台双账单体系：每日自动拉取渠道账单并与内部数据逐条比对，按差异化费率计算分账金额；异常订单支持财务补录或剔除后单独结算。"]
+            },
+            "gm-watch": {
+                index: "05", title: "GM 钟表", category: "电商平台 · 垂直社区商城",
+                summary: "面向钟表爱好者的高端钟表内容社区与配件电商 APP，覆盖干货分享、行情指南、钟表文化与自主品牌配件交易。",
+                tags: ["内容社区", "钟表行情", "配件电商", "Android / iOS"],
+                metrics: [["内容 + 电商", "钟表资讯与配件交易一体化"], ["双端上线", "Android 与 iOS 同步迭代"]],
+                intro: "GM 钟表是一款高端钟表类信息分享与电商 APP，由深圳远时网络科技有限公司开发，已在各大应用商店上线（Android 与 iOS 双端，当前版本 3.0.29）。产品聚焦高端手表领域，分享手表干货、购表指南、行情走势、钟表文化与技术解析，配合高清实拍照片沉淀钟表知识；同时作为电商平台销售自主品牌 GM 钟表配件，构建从内容种草到交易转化的垂直闭环。",
+                shot: "gm", shotImages: [
+                    ["gm/01.png", "App Store 应用页"],
+                    ["gm/02.jpg", "安卓应用商店详情与界面预览"]
+                ],
+                problems: ["高端钟表客单价高、决策周期长，用户在购买前需要专业的干货、行情与评测内容支撑决策。", "市面钟表内容分散在综合资讯和社交平台，缺乏聚焦高端手表、内容质量高的垂直社区。", "钟表配件品类需要可信的自主品牌渠道，内容流量与配件交易之间缺少顺畅的转化链路。"],
+                role: ["负责 GM 钟表 APP 的产品方案设计与功能结构梳理，覆盖内容社区与电商交易两大板块。", "围绕钟表资讯分享、干货指南、行情文化、高清实拍与配件商城等场景梳理用户路径。", "协同设计、研发与运营推进内容发布、商品交易、用户互动等核心模块的迭代落地。"],
+                output: ["搭建高端钟表内容社区：分享手表干货、购表指南、行情走势、钟表文化与技术解析，配合高清实拍照片，形成专业可信的钟表知识内容矩阵。", "建设自主品牌钟表配件电商模块，将内容社区积累的精准流量导向配件交易，实现从内容浏览到商品购买的转化闭环。", "产品以 Android 与 iOS 双端上线并持续迭代至 3.0.29 版本，归类为购物类潮流商城应用，服务钟表爱好者与配件消费者。"]
+            },
+            "guangzhou-restaurant": {
+                index: "06", title: "广州酒家电商平台 + 小程序", category: "电商系统 · 多端商城 · ERP 对接",
+                summary: "覆盖 PC/H5 商城与微信小程序，对接聚水潭 ERP，实现多店铺订单、库存与财务的一体化管理。",
+                tags: ["微信小程序", "聚水潭 ERP", "多端商城", "多店铺管理"],
+                metrics: [["多端覆盖", "PC/H5 + 微信小程序"], ["订单 · 库存 · 财务", "业务数据一体化"]],
+                intro: "广州酒家电商平台面向多店铺、多渠道经营场景，同时建设 PC/H5 商城与微信小程序，并对接聚水潭 ERP，将订单、库存、财务相关管理流程进行系统化协同，让消费者在多端便捷下单，让经营方在后端统一管控多渠道业务数据。",
+                shot: "marketplace", problems: ["多端商城（PC/H5/小程序）与多店铺经营下，订单、库存、财务数据分散，协同成本高。", "电商业务与聚水潭 ERP 之间需要稳定的数据衔接，避免重复录入和信息差。", "经营人员需要在一个后台清晰掌握跨端、跨店铺的业务数据与订单处理状态。"],
+                role: ["负责广州酒家电商平台与微信小程序的产品方案设计，梳理多端购物与交易流程。", "围绕多店铺订单、库存、财务协同，设计与聚水潭 ERP 的数据对接与同步方案。", "协同研发明确接口规则与数据流转机制，推动多端商城与 ERP 管理功能落地。"],
+                output: ["搭建覆盖 PC、H5 与微信小程序的多端商城，统一商品展示、下单交易与会员体验。", "对接聚水潭 ERP，打通多店铺订单、库存、财务数据链路，降低重复录入与信息差。", "通过统一后台与数据看板，帮助经营人员实时掌握跨端、跨店铺的订单与库存状态，提升多渠道经营效率。"]
+            },
+            "event-materials": {
+                index: "07", title: "活动物料管理系统", category: "企业系统 · 中企项目",
+                summary: "为中企活动场景建设物料全生命周期管理系统，覆盖物料台账、申请审批、出入库与活动执行协同。",
+                tags: ["企业数字化", "物料管理", "流程协同", "审批流"],
+                metrics: [["全生命周期", "台账到出入库闭环"], ["多角色协同", "申请/审批/执行在线化"]],
+                intro: "活动物料管理系统是为中企活动场景建设的企业内部管理项目，聚焦活动物料从采购入库、申请审批、领用出库到活动执行、盘点归还的全生命周期管理。系统通过统一的物料台账与在线审批流程，让物料状态、库存数量和流转进度对各角色透明可见，解决以往 Excel 分散记录、信息不同步、追溯困难的问题。",
+                shot: "marketplace", problems: ["活动物料品类多、数量大，采购、库存、领用信息分散在 Excel 和微信群中，容易错漏。", "申请、审批、出库涉及多个角色，缺少统一流程，进度不透明、责任难追溯。", "活动执行前后需要快速盘点和归还，手工核对效率低、易出错。"],
+                role: ["负责中企活动物料管理场景的需求调研、流程梳理与产品方案设计。", "设计物料台账、申请审批、出入库与盘点等核心模块，梳理多角色协作流程与权限边界。", "按政企合规要求输出原型与 PRD，协同研发完成系统落地、测试与验收交付。"],
+                output: ["搭建统一的物料电子台账，集中管理物料名称、分类、规格、库存数量与供应商信息，替代分散的 Excel 记录。", "设计在线申请—审批—出入库流程，物料状态与流转进度实时可查，审批节点责任到人、全程留痕可追溯。", "建立库存预警与活动盘点能力，库存低于阈值自动提醒，活动前后支持快速盘点与归还登记，提升物料周转效率与数据准确性。"]
+            },
+            "xiaojialian": {
+                index: "08", title: "小家链 APP 电商商城", category: "移动电商 · APP 商城",
+                summary: "面向移动端用户的电商商城 APP，覆盖商品浏览、购物车、下单交易、订单售后与营销运营全链路。",
+                tags: ["移动电商", "APP 商城", "交易链路", "营销运营"],
+                metrics: [["全链路", "浏览到售后闭环"], ["移动端", "原生购物体验"]],
+                intro: "小家链 APP 电商商城是面向 C 端用户的移动端商城产品，围绕家居生活用品的线上销售场景，提供商品浏览与搜索、购物车、下单支付、订单物流、售后退换以及优惠券、拼团、秒杀等营销玩法。产品重点在移动端小屏上打造清晰连贯的购物路径，平衡运营转化需求与用户购物体验。",
+                shot: "pillow", problems: ["移动端屏幕有限，需要在商品发现、购买决策和交易转化之间保持清晰路径。", "营销玩法多（优惠券、拼团、秒杀），规则复杂且容易与交易流程冲突。", "订单、物流、售后链路长，需要让用户随时掌握状态、降低咨询成本。"],
+                role: ["负责小家链 APP 商城的产品方案设计与用户路径梳理。", "围绕商品、交易、营销、售后场景拆解功能需求，输出移动端原型与 PRD。", "协同设计、研发、测试完成核心购物链路落地，并跟进运营数据迭代优化。"],
+                output: ["搭建从商品浏览、搜索、详情、购物车到下单支付的完整交易链路，优化移动端商品展示与下单操作路径。", "设计优惠券、拼团、秒杀等营销玩法的产品规则，明确活动与商品、订单、库存之间的关系与互斥逻辑。", "建设订单物流追踪与售后退换流程，让用户实时掌握订单状态，降低售后咨询与人工处理成本。"]
+            },
+            "decentralized-wallet": {
+                index: "09", title: "去中心化钱包", category: "Web3 产品 · 数字资产管理",
+                summary: "参考 TP 钱包体验打造的轻量去中心化钱包，对接两条主流公链，聚焦资产管理与转账收款，不内置 DApp 浏览器。",
+                tags: ["Web3", "多链资产管理", "助记词", "转账收款"],
+                metrics: [["2 条主流公链", "资产统一管理"], ["无浏览器", "聚焦资产核心场景"]],
+                intro: "去中心化钱包是一款参考 TP 钱包使用体验设计的轻量数字资产管理工具。产品定位为简洁、安全的资产钱包，首期对接两条主流公链（如 ETH、BSC），支持钱包创建/导入、多链资产查看、转账收款与交易记录；为聚焦核心场景、降低安全风险，产品不内置 DApp 浏览器，把资产管理本身做深做透。",
+                shot: "pillow", problems: ["去中心化钱包涉及助记词、私钥管理，用户操作门槛和安全认知成本高。", "多链资产分散，用户需要在一个钱包内统一查看和管理不同链上的代币。", "钱包一旦误操作或泄露私钥将造成资产损失，关键节点必须有强提示与二次确认。"],
+                role: ["参考 TP 钱包等主流产品，负责去中心化钱包的产品定位与信息架构设计。", "设计钱包创建/导入、多链资产管理、转账收款、交易记录等核心流程。", "在助记词备份、转账授权等关键节点规划安全提示、二次确认与风险反馈机制。"],
+                output: ["设计助记词创建、私钥/助记词导入的完整钱包创建与备份流程，通过分步引导与二次确认降低误操作与泄露风险。", "实现两条主流公链的资产统一管理，在首页聚合展示多链代币余额，支持按链切换查看与收款地址管理。", "打造清晰的转账、收款与交易记录流程，设置矿工费、地址校验、大额转账提醒等安全校验，在易用性与资产安全之间取得平衡。"]
+            },
+            "ai-video-editing": {
+                index: "10", title: "AI 视频剪辑工作流", category: "AI 产品 · 内容生产 Skill",
+                summary: "基于 OpenClaw 搭建从对标拆解、文案采集改写，到 AI 视频生成与剪辑的自动化内容生产工作流。",
+                tags: ["OpenClaw", "AI 文案", "AI 视频", "自动化工作流"],
+                metrics: [["全流程", "对标到成片自动化"], ["AI 协同", "文案+视频+剪辑"]],
+                intro: "AI 视频剪辑项目基于 OpenClaw 设计了一套可复用的短视频生产 Skill，将原本依赖人工的内容创作流程拆解为标准化步骤：先寻找对标账号与爆款视频，再采集其文案结构，用 AI 改写为原创文案，随后基于文案驱动 AI 生成视频素材，最后自动完成剪辑与成片输出，实现内容生产的半自动化。",
+                shot: "marketing", problems: ["短视频内容生产环节多、耗时长，找选题、写文案、配素材、剪辑都需要大量人工。", "对标分析与文案创作依赖经验，难以标准化和批量复制。", "AI 生成能力分散，需要被组织成一条清晰、可执行的端到端工作流。"],
+                role: ["基于 OpenClaw 设计并搭建 AI 视频剪辑的端到端内容生产 Skill。", "梳理从对标拆解、文案采集改写到视频生成剪辑的完整流程与提示词。", "规划各环节 AI 工具与任务编排，推动工作流跑通并持续优化产出质量。"],
+                output: ["设计“找对标”环节：自动采集对标账号与爆款视频，拆解其选题方向与内容结构。", "设计“采集文案—改写文案”环节：抓取对标文案后，用 AI 按指定风格和卖点改写为原创脚本，保证内容差异化。", "打通“文案输出—视频制作—剪辑”链路：基于改写文案驱动 AI 生成视频素材并自动完成剪辑、配乐与字幕输出，形成可复用的内容生产自动化工作流。"]
+            }
+        };
+        const key = new URLSearchParams(location.search).get("case");
+        const data = cases[key] || cases["ai-evaluation"];
+        document.title = data.title + " | 邓洁 · 产品经理";
+        document.getElementById("caseKicker").textContent = "CASE STUDY / " + data.index + " · " + data.category;
+        document.getElementById("caseTitle").textContent = data.title;
+        document.getElementById("caseSummary").textContent = data.summary;
+        document.getElementById("caseTags").innerHTML = data.tags.map(tag => `<span>${tag}</span>`).join("");
+        const list = items => `<ul>${items.map(item => `<li>${item}</li>`).join("")}</ul>`;
+        const screens = {
+            ai: `<div class="case-shot-window"><span></span><span></span><span></span><aside>评估中心<br><b>任务管理</b><br>指标配置<br>评估报告</aside><div><em>可信 AI 评估看板</em><i class="case-shot-chart"></i><p><b></b><b></b><b></b></p></div></div>`,
+            marketing: `<div class="case-shot-window"><span></span><span></span><span></span><aside>工作台<br><b>获客任务</b><br>设备管理<br>数据报表</aside><div><em>AI 获客任务中心</em><i class="case-shot-pills"></i><p><b></b><b></b><b></b></p></div></div>`,
+            marketplace: `<div class="case-shot-window"><span></span><span></span><span></span><aside>商品中心<br><b>订单管理</b><br>营销工具<br>财务对账</aside><div><em>商城运营工作台</em><i class="case-shot-products"></i><p><b></b><b></b><b></b></p></div></div>`,
+            pillow: `<div class="case-shot-phone"><i></i><em>智能枕头</em><b></b><strong>07 : 30</strong><small>已同步至设备</small><span>闹钟设置</span></div>`
+        };
+        const screenshotMarkup = data.shotImages
+            ? `<div class="case-real-screenshot-grid">${data.shotImages.map(([src, label]) => `<figure class="case-screenshot-card"><button type="button" class="case-screenshot-trigger" data-full-image="${src}" data-image-label="${label}" aria-label="放大查看${label}"><img src="${src}" alt="${data.title}${label}界面" loading="lazy"><span class="case-screenshot-zoom">点击放大</span></button><figcaption>${label}</figcaption></figure>`).join("")}</div>${data.shotArchitecture ? `<p class="case-material-note">真实系统界面 · 覆盖评估任务创建、任务管理、综合评估与分项维度评估</p><div class="case-architecture-group"><details class="case-architecture"><summary>查看可信 AI 技术架构图</summary><button type="button" class="case-architecture-trigger" data-full-image="${data.shotArchitecture}" data-image-label="可信 AI 技术架构图" aria-label="放大查看可信 AI 技术架构图"><img src="${data.shotArchitecture}" alt="${data.title}技术架构图" loading="lazy"><span>点击放大查看</span></button></details>${data.shotFeatureArchitecture ? `<details class="case-architecture"><summary>查看可信 AI 项目功能架构图</summary><button type="button" class="case-architecture-trigger" data-full-image="${data.shotFeatureArchitecture}" data-image-label="可信 AI 项目功能架构图" aria-label="放大查看可信 AI 项目功能架构图"><img src="${data.shotFeatureArchitecture}" alt="${data.title}功能架构图" loading="lazy"><span>点击放大查看</span></button></details>` : ""}</div>` : ""}`
+            : screens[data.shot];
+        document.getElementById("caseContent").innerHTML = `
+            <section><h2>项目介绍</h2><p>${data.intro}</p></section>
+            <section class="case-page-impact" aria-label="项目核心成果">
+                <span>项目成果</span>
+                <div>${data.metrics.map(([value, label]) => `<div><strong>${value}</strong><small>${label}</small></div>`).join("")}</div>
+            </section>
+            ${data.shotImages ? `<section><h2>项目截图</h2><div class="case-shot case-shot-${data.shot}">${screenshotMarkup}</div></section>` : ""}
+            <div class="case-page-grid"><section><h2>问题</h2>${list(data.problems)}</section><section><h2>职责</h2>${list(data.role)}</section></div>
+            <section class="case-page-output"><h2>产出</h2>${list(data.output)}</section>`;
+    </script>
+    <div class="image-lightbox" id="imageLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="项目截图放大预览">
+        <button type="button" class="image-lightbox-close" aria-label="关闭图片预览">×</button>
+        <div class="image-lightbox-content">
+            <img id="lightboxImage" src="" alt="">
+            <p id="lightboxCaption"></p>
+        </div>
+    </div>
+    <script>
+        // 深色模式切换
+        const themeToggle = document.getElementById('themeToggle');
+        const root = document.documentElement;
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = root.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            if (newTheme === 'dark') {
+                root.setAttribute('data-theme', 'dark');
+            } else {
+                root.removeAttribute('data-theme');
+            }
+            localStorage.setItem('theme', newTheme);
+        });
+
+        // 返回顶部按钮
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+    <script>
+        const lightbox = document.getElementById("imageLightbox");
+        const lightboxImage = document.getElementById("lightboxImage");
+        const lightboxCaption = document.getElementById("lightboxCaption");
+        const lightboxClose = document.querySelector(".image-lightbox-close");
+        let lastTrigger = null;
+        const closeLightbox = () => {
+            lightbox.classList.remove("active");
+            lightbox.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("lightbox-open");
+            if (lastTrigger) lastTrigger.focus();
+        };
+        document.querySelectorAll(".case-screenshot-trigger, .case-architecture-trigger").forEach(trigger => {
+            trigger.addEventListener("click", () => {
+                lastTrigger = trigger;
+                lightboxImage.src = trigger.dataset.fullImage;
+                lightboxImage.alt = trigger.querySelector("img").alt;
+                lightboxCaption.textContent = trigger.dataset.imageLabel;
+                lightbox.classList.add("active");
+                lightbox.setAttribute("aria-hidden", "false");
+                document.body.classList.add("lightbox-open");
+                lightboxClose.focus();
+            });
+        });
+        lightboxClose.addEventListener("click", closeLightbox);
+        lightbox.addEventListener("click", event => { if (event.target === lightbox) closeLightbox(); });
+        window.addEventListener("keydown", event => { if (event.key === "Escape" && lightbox.classList.contains("active")) closeLightbox(); });
+    </script>
+</body>
+</html>

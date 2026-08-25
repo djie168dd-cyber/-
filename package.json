@@ -1,0 +1,13 @@
+{
+  "name": "dengjie-product-manager-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "邓洁产品经理个人作品集网站（可便携运行）",
+  "scripts": {
+    "start": "node server.js",
+    "preview": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

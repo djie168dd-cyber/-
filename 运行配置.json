@@ -1,0 +1,15 @@
+{
+  "site": {
+    "entry": "index.html",
+    "host": "localhost",
+    "port": 8080
+  },
+  "runtime": {
+    "windowsNode": "tools/node.exe",
+    "fallbackCommand": "node"
+  },
+  "assets": {
+    "resume": "dengjie-product-manager-resume.pdf",
+    "heroPortrait": "照片改Q版2.png"
+  }
+}

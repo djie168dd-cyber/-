@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="邓洁 - 产品经理个人作品集网站。3年产品经验，覆盖AI系统、电商平台、智能硬件等多元业务场景，累计主导15+项目全流程交付。">
+    <title>邓洁 | 产品经理 · 作品集</title>
+    <!-- 使用系统字体栈：离线打开与转交给其他电脑时无需外网字体服务 -->
+    <!-- Favicon (内嵌SVG) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='25' fill='%236C5CE7'/%3E%3Ctext x='50' y='68' font-family='Arial' font-size='52' font-weight='bold' fill='white' text-anchor='middle'%3EDJ%3C/text%3E%3C/svg%3E">
+    <!-- Open Graph 社交分享 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="邓洁 | 产品经理 · 作品集">
+    <meta property="og:description" content="3年产品经验，覆盖AI系统、电商平台、智能硬件等多元业务场景，累计主导15+项目全流程交付。">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="邓洁 | 产品经理 · 作品集">
+    <meta name="twitter:description" content="3年产品经验，覆盖AI系统、电商平台、智能硬件等多元业务场景，累计主导15+项目全流程交付。">
+    <link rel="stylesheet" href="styles.css">
+    <!-- 主题初始化脚本(防止闪烁) -->
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme') || 'light';
+            if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        })();
+    </script>
+</head>
+<body>
+    <!-- 页面加载动画 -->
+    <div class="loader" id="loader">
+        <div class="loader-logo">
+            <span>DJ</span>
+        </div>
+        <div class="loader-bar"></div>
+    </div>
+
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop" aria-label="返回顶部">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
+
+    <!-- 导航栏 -->
+    <div class="nav-scrim" id="navScrim" aria-hidden="true"></div>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-mark">DJ</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#skills">能力</a></li>
+                <li><a href="#experience">经历</a></li>
+                <li><a href="#portfolio">作品集</a></li>
+                <li><a href="#contact" class="nav-cta">联系我</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="切换深色/浅色主题">
+                    <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+                <button class="nav-toggle" id="navToggle" aria-label="打开导航菜单" aria-expanded="false" aria-controls="navLinks">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero 区 -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="grid-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <span class="status-dot"></span>
+                    正在寻找产品经理机会
+                </div>
+                <h1 class="hero-title">
+                    你好，我是<span class="gradient-text">邓洁</span><br>
+                    求职：产品经理/专员
+                </h1>
+                <p class="hero-subtitle">
+                    3 年时间，专注于把模糊的业务诉求变成可上线、可复盘、能持续创造价值的产品方案。
+                </p>
+                <div class="hero-actions">
+                    <a href="#portfolio" class="btn btn-primary">
+                        查看作品集
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="#contact" class="btn btn-ghost">联系我</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <strong>3<span>年</span></strong>
+                        <span class="stat-label">产品经验</span>
+                    </div>
+                    <div class="stat">
+                        <strong>15<span>+</span></strong>
+                        <span class="stat-label">项目交付</span>
+                    </div>
+                    <div class="stat">
+                        <strong>5<span>类</span></strong>
+                        <span class="stat-label">业务场景</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="character-wrap">
+                    <!-- 人物插画（AI生成） -->
+                    <div class="character-picture character-picture-user">
+                        <img src="照片改Q版2.png" alt="邓洁的Q版人物形象" class="character-img character-img-user">
+                    </div>
+                    <!-- 浮动标签 -->
+                    <div class="float-card float-card-1">
+                        <svg class="float-card-icon icon-teal" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        <span>AI 产品</span>
+                    </div>
+                    <div class="float-card float-card-2">
+                        <svg class="float-card-icon icon-purple" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                        <span>全流程交付</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-hint">
+            <span>向下滚动</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- 核心能力 -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">01 / 核心能力</span>
+                <h2 class="section-title">产品经理的<span class="text-accent">能力图谱</span></h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card" data-color="purple">
+                    <div class="skill-num">01</div>
+                    <h3>产品设计与文档</h3>
+                    <p>独立输出高保真原型、业务流程图与数据流转图，原型与流程图配套交付，作为 PRD 的可视化补充，把模糊诉求转化为团队可执行的产品方案。</p>
+                    <div class="skill-tags">
+                        <span>Mastergo</span>
+                        <span>Axure</span>
+                        <span>Visio</span>
+                    </div>
+                </div>
+                <div class="skill-card" data-color="teal">
+                    <div class="skill-num">02</div>
+                    <h3>项目全流程管理</h3>
+                    <p>熟练运用敏捷与瀑布双模式，沉淀出适配不同项目节奏的落地方法论。借助飞书多维表格统一管理需求池、排期与风险，保障里程碑按时交付。</p>
+                    <div class="skill-tags">
+                        <span>敏捷 + 瀑布</span>
+                        <span>里程碑管控</span>
+                        <span>飞书多维表格</span>
+                    </div>
+                </div>
+                <div class="skill-card" data-color="pink">
+                    <div class="skill-num">03</div>
+                    <h3>AI 产品落地</h3>
+                    <p>主导可信 AI 评估系统、AI 营销系统从 0 到 1 落地，熟悉 Opik 评估框架、裁判大模型、RPA 自动化、多智能体调度等 AI 应用架构。</p>
+                    <div class="skill-tags">
+                        <span>AI 评估</span>
+                        <span>Opik 框架</span>
+                        <span>RPA 自动化</span>
+                    </div>
+                </div>
+                <div class="skill-card" data-color="purple">
+                    <div class="skill-num">04</div>
+                    <h3>需求分析与政企对接</h3>
+                    <p>通过用户访谈、竞品调研和深度需求分析校准核心问题。主导中企通信国企合作项目，对接政企客户，按合规要求完成全流程落地与验收。</p>
+                    <div class="skill-tags">
+                        <span>用户访谈</span>
+                        <span>竞品调研</span>
+                        <span>政企合规</span>
+                    </div>
+                </div>
+                <div class="skill-card" data-color="teal">
+                    <div class="skill-num">05</div>
+                    <h3>跨团队协同与赋能</h3>
+                    <p>协调开发、UI、测试、硬件等多团队推进，负责实习生日常管理、任务分配与产出验收；配合售前系统演示，负责售后客户培训与维护。</p>
+                    <div class="skill-tags">
+                        <span>多团队协同</span>
+                        <span>售前演示</span>
+                        <span>团队管理</span>
+                    </div>
+                </div>
+                <div class="skill-card" data-color="pink">
+                    <div class="skill-num">06</div>
+                    <h3>AI 工具提效</h3>
+                    <p>日常使用 Trae、Claude Code、Codex 辅助产品工作，用 AI 生成原型、测试用例与思维导图，并负责 AI 营销系统的运营推广与内容生产。</p>
+                    <div class="skill-tags">
+                        <span>Trae</span>
+                        <span>Claude Code</span>
+                        <span>内容运营</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 工作经历 -->
+    <section class="section experience" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">02 / 工作经历</span>
+                <h2 class="section-title">一段经历，<span class="text-accent">深入打磨</span></h2>
+            </div>
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div class="exp-company">
+                        <div class="exp-logo">汉全</div>
+                        <div>
+                            <h3>广州汉全科技股份有限公司</h3>
+                            <p class="exp-role">产品经理（实习转正）</p>
+                        </div>
+                    </div>
+                    <div class="exp-meta">
+                        <span class="exp-date">2023.07 — 2026.06</span>
+                        <span class="exp-type">全职 · 3 年</span>
+                    </div>
+                </div>
+                <div class="exp-body">
+                    <p class="exp-summary">
+                        实习期快速熟悉公司业务与产品逻辑，协助完成需求调研、竞品分析及原型初稿设计，获领导与同事认可后顺利转正。转正后负责定制化项目全生命周期产品工作，涵盖需求对接、方案拆解、进度规划、研发跟进、上线验收全流程；通过里程碑节点管控与跨团队协同完成各阶段交付，把控项目质量与进度。
+                    </p>
+                    <div class="exp-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon"></div>
+                            <div>
+                                <h4>15+ 项目全流程交付</h4>
+                                <p>独立负责电商、AI、区块链、企业 B 端、社区聊天等多类项目的需求落地与版本迭代</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon"></div>
+                            <div>
+                                <h4>中企通信国企项目</h4>
+                                <p>主导国企合作项目，对接政企客户，按合规要求及项目标准完成全流程落地与验收</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon"></div>
+                            <div>
+                                <h4>团队管理与产出把控</h4>
+                                <p>负责实习生日常管理、任务分配与工作指导，对其产出进行 review 与验收</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon"></div>
+                            <div>
+                                <h4>售前演示与售后培训</h4>
+                                <p>配合售前进行系统演示与产品介绍，负责售后客户培训、操作指导及日常维护</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 作品集 -->
+    <section class="section portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">03 / 作品集</span>
+                <h2 class="section-title">项目<span class="text-accent">实战案例</span></h2>
+                <p class="section-desc">以下是我主导的核心项目案例。每个案例从背景、角色、方案到成果完整呈现。</p>
+            </div>
+
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- 项目 1: 可信AI评估系统 -->
+                <article class="project-card" data-category="ai">
+                    <div class="project-body">
+                        <div class="project-heading">
+                            <p class="project-role">项目角色 · 产品经理 / 0 → 1 交付</p>
+                            <h3 class="project-title">可信 AI 评估系统</h3>
+                        </div>
+                        <p class="project-desc">为中企建设统一 AI 评估系统，结合 Opik 框架与裁判大模型，实现多平台 AI 输出的自动化、标准化评估，替代人工抽检，支撑平台选型与合规风控。</p>
+                        <div class="project-tags">
+                            <span>Opik 框架</span><span>裁判大模型</span><span>多智能体调度</span>
+                        </div>
+                        <a class="project-toggle" href="case-study.html?case=ai-evaluation" target="_blank" rel="noopener" aria-label="在新标签页查看可信 AI 评估系统案例详情">查看详情</a>
+                        <div class="project-detail" id="case-ai-evaluation-detail">
+                            <div class="case-detail-header"><span>CASE STUDY / 01</span><p>从统一接入到自动化评估的可信 AI 能力建设</p></div>
+                            <section class="case-detail-section case-intro"><h4>项目介绍</h4><p>为中企建设统一的可信 AI 评估系统。系统将各业务场景下分散的 AI 平台数据集中管理，通过可配置的指标与裁判模型，对 AI 输出内容进行持续、标准化的质量评估。</p></section>
+                            <section class="case-detail-section"><h4>项目截图</h4><div class="case-screenshot screenshot-ai"><div class="screenshot-window"><span></span><span></span><span></span><div class="screenshot-sidebar">评估中心<br><b>任务管理</b><br>指标配置<br>评估报告</div><div class="screenshot-main"><em>可信 AI 评估看板</em><div class="screenshot-chart"></div><div class="screenshot-lines"><i></i><i></i><i></i></div></div></div><p>真实系统截图待补充 · 建议展示评估任务、指标配置和报告看板</p></div></section>
+                            <div class="case-detail-grid">
+                                <section class="case-detail-section"><h4>问题</h4><ul><li>多平台 AI 输出质量参差不齐，缺少统一评估标尺。</li><li>人工抽检覆盖有限，难以支持常态化质量监控与横向对比。</li><li>平台选型、合规风控和优化迭代缺乏结构化数据支撑。</li></ul></section>
+                                <section class="case-detail-section"><h4>职责</h4><ul><li>负责从 0 到 1 的产品规划、原型与 PRD 输出。</li><li>对接多个 AI 平台，梳理数据接入、评估指标和报告需求。</li><li>协调研发落地统一接入、中间层调度及模型配置能力。</li></ul></section>
+                            </div>
+                            <section class="case-detail-section case-output"><h4>产出</h4><ul><li>建立统一接入规范与多平台数据集中管理能力。</li><li>设计基于 Opik、裁判大模型和多智能体调度的自动化评估方案。</li><li>输出结构化评估报告，为平台选型、合规风控与迭代提供依据。</li></ul></section>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 项目 2: 汉全AI营销系统 -->
+                <article class="project-card" data-category="ai">
+                    <div class="project-body">
+                        <div class="project-heading">
+                            <p class="project-role">项目角色 · 产品规划与持续迭代</p>
+                            <h3 class="project-title">汉全 AI 营销系统</h3>
+                        </div>
+                        <p class="project-desc">为 B2B 企业打造全自动 AI 获客与数字员工方案，基于 Android RPA 打通微信生态全流程自动化，帮助客户获客效率提升 50%，标杆客户年签单额突破 500 万元。</p>
+                        <div class="project-tags">
+                            <span>RPA 自动化</span><span>AI 获客</span><span>24h 无人值守</span>
+                        </div>
+                        <a class="project-toggle" href="case-study.html?case=ai-marketing" target="_blank" rel="noopener" aria-label="在新标签页查看汉全 AI 营销系统案例详情">查看详情</a>
+                        <div class="project-detail" id="case-ai-marketing-detail">
+                            <div class="case-detail-header"><span>CASE STUDY / 02</span><p>将 AI 与 RPA 融入 B2B 私域运营的持续迭代项目</p></div>
+                            <section class="case-detail-section case-intro"><h4>项目介绍</h4><p>面向 B2B 企业的 AI 获客与数字员工系统，基于 Android 端 RPA 命令执行能力，整合主动获客、微信机器人、群发与 SOP 跟进等模块，形成可规模化执行的私域运营解决方案。</p></section>
+                            <section class="case-detail-section"><h4>项目截图</h4><div class="case-screenshot screenshot-marketing"><div class="screenshot-window"><span></span><span></span><span></span><div class="screenshot-sidebar">工作台<br><b>获客任务</b><br>设备管理<br>数据报表</div><div class="screenshot-main"><em>AI 获客任务中心</em><div class="screenshot-pills"><i></i><i></i><i></i></div><div class="screenshot-list"><b></b><b></b><b></b></div></div></div><p>真实系统截图待补充 · 建议展示任务编排、设备管理和运营数据</p></div></section>
+                            <div class="case-detail-grid">
+                                <section class="case-detail-section"><h4>问题</h4><ul><li>B2B 获客成本高，线索挖掘和跟进依赖人工操作。</li><li>私域运营流程分散，多账号管理与标准化执行成本高。</li><li>企业需要稳定、可配置的无人值守运营机制。</li></ul></section>
+                                <section class="case-detail-section"><h4>职责</h4><ul><li>负责产品规划、需求迭代与全流程推进。</li><li>调研 B2B 获客及私域运营场景，梳理客户反馈与功能优先级。</li><li>输出迭代方案，协同研发、运营完成系统落地与推广。</li></ul></section>
+                            </div>
+                            <section class="case-detail-section case-output"><h4>产出</h4><ul><li>设计主动获客、微信机器人与 SOP 跟进等产品能力。</li><li>实现 AI 精准获客、线索跟进与私域运营的自动化协同。</li><li>支持 24 小时无人值守运营，推动重复性运营动作流程化、规模化。</li></ul></section>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 项目 3: 智能枕头闹铃系统APP -->
+                <article class="project-card" data-category="iot">
+                    <div class="project-body">
+                        <div class="project-heading">
+                            <p class="project-role">项目角色 · APP 端产品方案设计</p>
+                            <h3 class="project-title">智能枕头闹铃系统 APP</h3>
+                        </div>
+                        <p class="project-desc">为智能枕头硬件配套的 React Native APP，通过 BLE 低功耗蓝牙实现设备配网与闹钟控制；创新设计"双通道唤醒"与"重连即对账"机制，保障唤醒可靠性与数据一致。</p>
+                        <div class="project-tags">
+                            <span>React Native</span><span>BLE 蓝牙</span><span>软硬件协同</span>
+                        </div>
+                        <a class="project-toggle" href="case-study.html?case=smart-pillow" target="_blank" rel="noopener" aria-label="在新标签页查看智能枕头闹铃系统 APP 案例详情">查看详情</a>
+                        <div class="project-detail" id="case-smart-pillow-detail">
+                            <div class="case-detail-header"><span>CASE STUDY / 03</span><p>围绕稳定连接与可靠唤醒设计的 IoT 移动端体验</p></div>
+                            <section class="case-detail-section case-intro"><h4>项目介绍</h4><p>为智能枕头硬件配套的移动端应用，通过 BLE 低功耗蓝牙建立连接，支持设备配网、闹钟设置及参数调节，并围绕断连、重连与唤醒可靠性设计软硬件协同机制。</p></section>
+                            <section class="case-detail-section"><h4>项目截图</h4><div class="case-screenshot screenshot-pillow"><div class="phone-shot"><div class="phone-notch"></div><em>智能枕头</em><div class="sleep-ring"></div><b>07 : 30</b><small>已同步至设备</small><div class="phone-button">闹钟设置</div></div><p>真实 APP 截图待补充 · 建议展示设备连接、闹钟设置和同步状态</p></div></section>
+                            <div class="case-detail-grid">
+                                <section class="case-detail-section"><h4>问题</h4><ul><li>硬件与手机需保持稳定蓝牙连接，并支持设备配网与参数配置。</li><li>单一闹钟通道存在失效风险，影响用户对产品的信任。</li><li>断连重连后两端闹钟数据可能不一致。</li></ul></section>
+                                <section class="case-detail-section"><h4>职责</h4><ul><li>负责 APP 端产品方案、原型与 PRD 输出。</li><li>对接硬件团队，梳理蓝牙通信能力和设备配置边界。</li><li>借助 AI 辅助完成原型设计、需求拆解与文档交付。</li></ul></section>
+                            </div>
+                            <section class="case-detail-section case-output"><h4>产出</h4><ul><li>设计 BLE 通信、设备配网、闹钟设置与参数调节完整流程。</li><li>设计“软硬件双通道唤醒”方案，提升闹钟可靠性。</li><li>建立“重连即对账”规则，确保 APP 与设备端数据一致。</li></ul></section>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 项目 4: 研祥跳蚤商城 -->
+                <article class="project-card" data-category="ecommerce">
+                    <div class="project-body">
+                        <div class="project-heading">
+                            <p class="project-role">项目角色 · 兑换/营销/财务模块产品设计</p>
+                            <h3 class="project-title">研祥跳蚤商城</h3>
+                        </div>
+                        <p class="project-desc">支持实物与虚拟商品交易的平台，设计兑换码全链路自动化、可配置营销规则引擎与商户平台双账单体系，实现从下单、自动核销到多渠道自动对账结算的交易闭环。</p>
+                        <div class="project-tags">
+                            <span>兑换码系统</span><span>规则引擎</span><span>自动对账分账</span>
+                        </div>
+                        <a class="project-toggle" href="case-study.html?case=marketplace" target="_blank" rel="noopener" aria-label="在新标签页查看研祥跳蚤商城案例详情">查看详情</a>
+                        <div class="project-detail" id="case-marketplace-detail">
+                            <div class="case-detail-header"><span>CASE STUDY / 04</span><p>围绕多商品形态与交易闭环建设的电商系统项目</p></div>
+                            <section class="case-detail-section case-intro"><h4>项目介绍</h4><p>支持实物与虚拟商品交易的平台，围绕兑换码、差异化履约、营销规则及多渠道对账结算，构建从下单、交付到财务结算的自动化交易闭环。</p></section>
+                            <section class="case-detail-section"><h4>项目截图</h4><div class="case-screenshot screenshot-marketplace"><div class="screenshot-window"><span></span><span></span><span></span><div class="screenshot-sidebar">商品中心<br><b>订单管理</b><br>营销工具<br>财务对账</div><div class="screenshot-main"><em>商城运营工作台</em><div class="screenshot-products"><i></i><i></i><i></i></div><div class="screenshot-lines"><i></i><i></i><i></i></div></div></div><p>真实系统截图待补充 · 建议展示商品管理、订单履约与对账页面</p></div></section>
+                            <div class="case-detail-grid">
+                                <section class="case-detail-section"><h4>问题</h4><ul><li>实物与虚拟商品需支持差异化履约，虚拟商品交付高度依赖人工。</li><li>营销规则缺少可配置能力，难以兼顾优先级、互斥和预算控制。</li><li>多渠道、多商户对账依赖人工 Excel，结算效率与准确性受限。</li></ul></section>
+                                <section class="case-detail-section"><h4>职责</h4><ul><li>负责兑换、营销及财务模块的原型设计与 PRD 输出。</li><li>对接业务方，梳理交易、营销与结算的核心规则和边界。</li><li>推动 API、Webhook、规则引擎及双账单方案的产品落地。</li></ul></section>
+                            </div>
+                            <section class="case-detail-section case-output"><h4>产出</h4><ul><li>设计兑换码全链路，支持自动核销、状态回传与自动发货。</li><li>建设可配置营销规则体系，覆盖优惠券、满减、组合促销等场景。</li><li>建立商户与平台双账单体系，实现多渠道自动对账与差异结算。</li></ul></section>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 项目 5: GM 钟表 -->
+                <article class="project-card" data-category="ecommerce">
+                    <div class="project-body">
+                        <div class="project-heading">
+                            <p class="project-role">项目角色 · 电商平台产品设计</p>
+                            <h3 class="project-title">GM 钟表</h3>
+                        </div>
+                        <p class="project-desc">集社区互动、评论、行业资讯、商家入驻、商城交易与用户沟通于一体的钟表垂直电商平台。</p>
+                        <div class="project-tags">
+                            <span>社区互动</span><span>商家入驻</span><span>电商交易</span>
+                        </div>
+                        <a class="project-toggle" href="case-study.html?case=gm-watch" target="_blank" rel="noopener" aria-label="在新标签页查看 GM 钟表案例详情">查看详情</a>
+                    </div>
+                </article>
+
+                <!-- 项目 6: 广州酒家电商平台+小程序 -->
+                <article class="project-card" data-category="ecommerce">
+                    <div class="project-body">
+                        <div class="project-heading">
+                            <p class="project-role">项目角色 · 多端商城产品设计</p>
+                            <h3 class="project-title">广州酒家电商平台 + 小程序</h3>
+                        </div>
+                        <p class="project-desc">覆盖 PC/H5 商城与微信小程序，对接聚水潭 ERP，实现多店铺订单、库存与财务的一体化管理。</p>
+                        <div class="project-tags">
+                            <span>微信小程序</span><span>聚水潭 ERP</span><span>多端商城</span>
+                        </div>
+                        <a class="project-toggle" href="case-study.html?case=guangzhou-restaurant" target="_blank" rel="noopener" aria-label="在新标签页查看广州酒家电商平台案例详情">查看详情</a>
+                    </div>
+                </article>
+
+                <!-- 项目 7: 活动物料管理系统 -->
+                <article class="project-card" data-category="enterprise">
+                    <div class="project-body">
+                        <div class="project-heading">
+                            <p class="project-role">项目角色 · 企业系统产品设计</p>
+                            <h3 class="project-title">活动物料管理系统</h3>
+                        </div>
+                        <p class="project-desc">为中企活动场景建设物料全生命周期管理系统，覆盖台账、申请审批、出入库、盘点归还的在线协同。</p>
+                        <div class="project-tags">
+                            <span>物料台账</span><span>审批流</span><span>出入库</span>
+                        </div>
+                        <a class="project-toggle" href="case-study.html?case=event-materials" target="_blank" rel="noopener" aria-label="在新标签页查看活动物料管理系统案例详情">查看详情</a>
+                    </div>
+                </article>
+
+                <!-- 项目 8: 小家链 APP 电商商城 -->
+                <article class="project-card" data-category="ecommerce">
+                    <div class="project-body">
+                        <div class="project-heading">
+                            <p class="project-role">项目角色 · 移动电商产品设计</p>
+                            <h3 class="project-title">小家链 APP 电商商城</h3>
+                        </div>
+                        <p class="project-desc">面向 C 端的移动商城 APP，覆盖商品浏览、购物车、下单支付、订单售后与优惠券拼团等营销玩法。</p>
+                        <div class="project-tags">
+                            <span>移动商城</span><span>交易链路</span><span>营销玩法</span>
+                        </div>
+                        <a class="project-toggle" href="case-study.html?case=xiaojialian" target="_blank" rel="noopener" aria-label="在新标签页查看小家链 APP 电商商城案例详情">查看详情</a>
+                    </div>
+                </article>
+
+                <!-- 项目 9: 去中心化钱包 -->
+                <article class="project-card" data-category="web3">
+                    <div class="project-body">
+                        <div class="project-heading">
+                            <p class="project-role">项目角色 · Web3 产品设计</p>
+                            <h3 class="project-title">去中心化钱包</h3>
+                        </div>
+                        <p class="project-desc">参考 TP 钱包体验的轻量钱包，对接两条主流公链，聚焦资产管理与转账收款，不内置 DApp 浏览器。</p>
+                        <div class="project-tags">
+                            <span>多链资产</span><span>助记词</span><span>转账收款</span>
+                        </div>
+                        <a class="project-toggle" href="case-study.html?case=decentralized-wallet" target="_blank" rel="noopener" aria-label="在新标签页查看去中心化钱包案例详情">查看详情</a>
+                    </div>
+                </article>
+
+                <!-- 项目 10: AI 视频剪辑 -->
+                <article class="project-card" data-category="ai">
+                    <div class="project-body">
+                        <div class="project-heading">
+                            <p class="project-role">项目角色 · AI 内容生产 Skill 设计</p>
+                            <h3 class="project-title">AI 视频剪辑工作流</h3>
+                        </div>
+                        <p class="project-desc">基于 OpenClaw 搭建从找对标、采集文案、AI 改写、文案生成视频到自动剪辑的端到端内容生产工作流。</p>
+                        <div class="project-tags">
+                            <span>对标拆解</span><span>AI 文案</span><span>视频生成剪辑</span>
+                        </div>
+                        <a class="project-toggle" href="case-study.html?case=ai-video-editing" target="_blank" rel="noopener" aria-label="在新标签页查看 AI 视频剪辑案例详情">查看详情</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="contact-card">
+                <div class="contact-bg">
+                    <div class="blob blob-1"></div>
+                    <div class="blob blob-2"></div>
+                </div>
+                <div class="contact-content">
+                    <span class="section-label">04 / 联系我</span>
+                    <h2 class="contact-title">让我们一起<br>打造下一个<span class="gradient-text">好产品</span></h2>
+                    <p class="contact-desc">如果你正在寻找一位能全流程交付、懂 AI 工具、能跨团队协作的产品经理，欢迎联系我。</p>
+                    <div class="contact-methods">
+                        <a href="mailto:3484307487@qq.com" class="contact-method">
+                            <div class="method-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </div>
+                            <div>
+                                <span class="method-label">邮箱</span>
+                                <span class="method-value">3484307487@qq.com</span>
+                            </div>
+                        </a>
+                        <a href="tel:13672919213" class="contact-method">
+                            <div class="method-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </div>
+                            <div>
+                                <span class="method-label">手机</span>
+                                <span class="method-value">13672919213</span>
+                            </div>
+                        </a>
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                            </div>
+                            <div>
+                                <span class="method-label">微信</span>
+                                <span class="method-value">13672919213</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="dengjie-product-manager-resume.pdf" class="btn btn-primary btn-large" download="邓洁产品经理.pdf">
+                        下载简历 PDF
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <span class="logo-mark">DJ</span>
+                    <p>邓洁 · 产品经理</p>
+                </div>
+                <div class="footer-right">
+                    <p>© 2026 设计与开发 by 邓洁</p>
+                    <p class="footer-note">用产品解决问题，用交付创造价值</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

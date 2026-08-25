@@ -1,0 +1,32 @@
+邓洁｜产品经理作品集网站
+
+一、直接查看
+1. 将整个“workbuddy个人网站”文件夹完整复制给对方。
+2. 对方可直接双击 index.html 在浏览器中查看页面。
+   提示：直接打开时，简历下载和大部分交互可用；建议使用下方本地服务方式，兼容性最佳。
+
+二、推荐运行方式（无需额外安装）
+1. 双击本文件夹内“启动网站.cmd”。
+2. 脚本会优先使用本文件夹内 tools\node.exe；接收方无需安装 Node.js。
+3. 浏览器打开：http://localhost:8080
+4. 关闭命令窗口或按 Ctrl + C，即可停止服务。
+
+三、文件说明
+- index.html：页面结构与内容
+- styles.css：全部视觉样式与主题样式
+- script.js：主题切换、项目详情、滚动动效等交互
+- server.js：本地静态服务器，无第三方依赖
+- 启动网站.cmd：Windows 一键启动入口，优先使用内置运行时
+- package.json：网站项目配置与启动命令定义
+- 运行配置.json：站点端口、入口、运行时与关键资源配置
+- tools\node.exe：Windows 便携 Node.js 运行时
+- dengjie-product-manager-resume.pdf：网站“下载简历 PDF”所用文件
+- q-avatar-hero-latest.jpg：Hero 区当前使用的人物图
+
+四、可移交特性
+- 图片、PDF、CSS、JS、项目配置及本地运行时均在本文件夹内。
+- 页面已移除外部 Google Fonts 依赖；离线也能正常展示系统字体。
+- 无需 npm install、无需数据库、无需环境变量、无需系统全局 Node.js。
+- 不包含 WorkBuddy 的全局系统配置、个人缓存或会话数据，避免泄露原电脑隐私且这些内容也不是网站运行所需。
+
+注意：请勿只复制单个 index.html，必须完整复制整个网站文件夹。
