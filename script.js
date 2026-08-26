@@ -291,15 +291,14 @@ backToTop.addEventListener('click', () => {
 
 // ============================================
 // 页面加载动画
+// DOM 就绪后很快隐藏，不必等待大图等全部资源加载完，避免长时间卡在加载画面
 // ============================================
-window.addEventListener('load', () => {
+const hideLoader = () => {
     const loader = document.getElementById('loader');
-    if (loader) {
-        setTimeout(() => {
-            loader.classList.add('hidden');
-        }, 600);
-    }
-});
+    if (loader) loader.classList.add('hidden');
+};
+window.addEventListener('DOMContentLoaded', () => setTimeout(hideLoader, 350));
+window.addEventListener('load', hideLoader); // load 事件兜底
 
 // 项目详情已迁移至 case-study.html，并在新标签页打开。
 
