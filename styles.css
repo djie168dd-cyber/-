@@ -4711,18 +4711,29 @@ body::before {
     background-position: 100% 50%;
     box-shadow: 0 16px 38px var(--neon-violet), 0 0 30px var(--neon-cyan);
 }
-.nav-cta,
 .btn-ghost {
     border: 1px solid var(--glass-border);
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
-.nav-cta:hover,
 .btn-ghost:hover {
     transform: translateY(-2px);
     border-color: var(--purple);
     box-shadow: var(--shadow-glow);
+}
+
+/* 导航“联系我”：保持实心渐变 + 白字（修复浅色模式下白字与背景融合不可见） */
+.nav-cta {
+    background: var(--gradient-main);
+    color: #fff !important;
+    border: none;
+    box-shadow: 0 8px 22px var(--neon-violet);
+}
+.nav-cta:hover {
+    transform: translateY(-2px);
+    border-color: transparent;
+    box-shadow: 0 12px 30px var(--neon-violet), 0 0 22px var(--neon-cyan);
 }
 
 /* 区块小标题：霓虹 kicker */
