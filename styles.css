@@ -4886,4 +4886,21 @@ body::before {
     .experience-card:hover {
         transform: translateY(-4px);
     }
+
+    /* 修复手机端 hero 离顶部过远：取消强制 100vh 居中，内容自然靠上 */
+    .hero {
+        min-height: auto;
+        padding-top: 92px;
+        padding-bottom: 56px;
+        align-items: flex-start;
+    }
+}
+
+/* 触摸设备：取消主题按钮的悬停位移/旋转，避免点按后停留在高亮态、要点别处才还原 */
+@media (hover: none), (pointer: coarse) {
+    .theme-toggle:hover {
+        transform: none;
+        color: var(--text-primary);
+        border-color: var(--border);
+    }
 }
