@@ -4846,6 +4846,20 @@ body::before {
     }
 }
 
+/* 人物图：下载完成后整块淡入，避免 PNG 逐行“挤牙膏”式从上往下绘制 */
+.character-img-user.avatar-fade {
+    opacity: 0;
+    transform: translateY(10px) scale(.985);
+    transition: opacity .5s ease, transform .5s ease;
+}
+.character-img-user.avatar-fade.loaded {
+    opacity: 1;
+    transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+    .character-img-user.avatar-fade { opacity: 1; transform: none; transition: none; }
+}
+
 /* 移动端微调 */
 @media (max-width: 640px) {
     /* 修复手机端 hero 离顶部过远：外层 .hero 与内层 .hero-content 都有大顶部间距，需一并清零 */
@@ -4865,10 +4879,85 @@ body::before {
 
     /* 收紧 hero 与“01 核心能力”之间的空隙 */
     .skills {
-        padding-top: 44px;
+        padding-top: 36px;
     }
     .skills .section-header {
+        margin-bottom: 24px;
+    }
+
+    /* 手机端整体收紧各模块之间的间距 */
+    .section {
+        padding: 60px 0;
+    }
+    .contact {
+        padding: 60px 0 72px;
+    }
+    .section-header {
         margin-bottom: 28px;
+    }
+}
+
+/* 01 核心能力（淡紫色块）→ 02 经历（白底）过渡生硬：给能力区底部加一道向页面底色的柔和渐变 */
+.skills::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 90px;
+    background: linear-gradient(to bottom, transparent, var(--bg));
+    pointer-events: none;
+}
+.skills {
+    position: relative;
+}
+/* 底部渐变占位，避免内容被遮罩压到 */
+.skills .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* 手机/平板：显示“向下滚动”提示，改为文档流内居中的一行，不再绝对定位 */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        align-items: center;
+    }
+    .scroll-hint {
+        position: static;
+        transform: none;
+        align-self: center;
+        margin: 22px auto 0;
+        flex-direction: row;
+        gap: 12px;
+        animation: none;
+    }
+    .scroll-line {
+        width: 34px;
+        height: 1px;
+    }
+}
+
+/* 矮屏笔记本（横向、高度小）：hero 不强制满屏，避免数值条与“向下滚动”提示挤压重叠 */
+@media (min-width: 769px) and (max-height: 880px) {
+    .hero {
+        min-height: auto;
+        padding: 130px 0 70px;
+        align-items: center;
+    }
+    .hero-content {
+        min-height: auto;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .scroll-hint {
+        display: none;
+    }
+    .hero-stats .stat {
+        padding: 14px 18px;
+    }
+    .hero-stats .stat strong {
+        font-size: 1.7rem;
     }
 }
 
