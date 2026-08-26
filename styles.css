@@ -4848,12 +4848,19 @@ body::before {
 
 /* 移动端微调 */
 @media (max-width: 640px) {
-    /* 修复手机端 hero 离顶部过远：取消强制 100vh 居中，内容自然靠上 */
+    /* 修复手机端 hero 离顶部过远：外层 .hero 与内层 .hero-content 都有大顶部间距，需一并清零 */
     .hero {
         min-height: auto;
-        padding-top: 92px;
+        padding-top: 84px;
         padding-bottom: 40px;
         align-items: flex-start;
+    }
+    /* 关键：≤768 响应式块给 .hero-content 设了 padding-top:120px，这里覆盖掉 */
+    .hero-content {
+        min-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        gap: 24px;
     }
 
     /* 收紧 hero 与“01 核心能力”之间的空隙 */
