@@ -4752,10 +4752,9 @@ body::before {
 .case-page-header,
 .case-page-content {
     position: relative;
-    background: var(--glass-bg);
+    /* 纯色卡片底：省去大面积 backdrop-filter 模糊，滚动/渲染更流畅；霓虹描边与发光保留 */
+    background: var(--bg-card);
     border: 1px solid var(--glass-border);
-    backdrop-filter: blur(16px) saturate(150%);
-    -webkit-backdrop-filter: blur(16px) saturate(150%);
     transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s;
 }
 .skill-card::before,
@@ -4774,10 +4773,15 @@ body::before {
     mask-composite: exclude;
     opacity: 0;
     transition: opacity .4s;
-    animation: bd-spin 7s linear infinite;
     pointer-events: none;
 }
 @keyframes bd-spin { to { --bd-angle: 360deg; } }
+/* 描边旋转仅在悬停时运行，避免多张卡片后台空转消耗性能 */
+.skill-card:hover::before,
+.project-card:hover::before,
+.experience-card:hover::before {
+    animation: bd-spin 4s linear infinite;
+}
 
 .skill-card:hover,
 .project-card:hover,
