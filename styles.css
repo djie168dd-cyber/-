@@ -4645,14 +4645,11 @@ body::before {
     50% { background-position: 100% 50%; }
 }
 
-/* Logo 标记：渐变 + 霓虹 */
+/* Logo 标记：保持“渐变方块底 + 白字 DJ”（白字不能透明，否则看不见） */
 .logo-mark {
     background: var(--gradient-main) !important;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    filter: drop-shadow(0 0 10px var(--neon-violet));
+    -webkit-text-fill-color: #fff;
+    color: #fff;
     font-weight: 800;
 }
 
@@ -4757,43 +4754,13 @@ body::before {
     border: 1px solid var(--glass-border);
     transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s;
 }
-.skill-card::before,
-.project-card::before,
-.experience-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1.6px;
-    background: conic-gradient(from var(--bd-angle),
-        var(--purple), var(--teal), var(--pink), var(--purple));
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity .4s;
-    pointer-events: none;
-}
-@keyframes bd-spin { to { --bd-angle: 360deg; } }
-/* 描边旋转仅在悬停时运行，避免多张卡片后台空转消耗性能 */
-.skill-card:hover::before,
-.project-card:hover::before,
-.experience-card:hover::before {
-    animation: bd-spin 4s linear infinite;
-}
-
+/* 已移除卡片的彩虹渐变描边（::before conic-border）：它在悬停/点按时显得厚重、
+   且触摸设备上会残留成“卡片内的框”。悬停反馈改为下面这种轻微上浮 + 柔和阴影。 */
 .skill-card:hover,
 .project-card:hover,
 .experience-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl), var(--shadow-glow);
-    border-color: transparent;
-}
-.skill-card:hover::before,
-.project-card:hover::before,
-.experience-card:hover::before {
-    opacity: 1;
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
 }
 
 /* 卡片序号渐变 */
@@ -4879,25 +4846,35 @@ body::before {
     }
 }
 
-/* 移动端微调：玻璃描边在小屏减弱，避免拥挤 */
+/* 移动端微调 */
 @media (max-width: 640px) {
-    .skill-card:hover,
-    .project-card:hover,
-    .experience-card:hover {
-        transform: translateY(-4px);
-    }
-
     /* 修复手机端 hero 离顶部过远：取消强制 100vh 居中，内容自然靠上 */
     .hero {
         min-height: auto;
         padding-top: 92px;
-        padding-bottom: 56px;
+        padding-bottom: 40px;
         align-items: flex-start;
+    }
+
+    /* 收紧 hero 与“01 核心能力”之间的空隙 */
+    .skills {
+        padding-top: 44px;
+    }
+    .skills .section-header {
+        margin-bottom: 28px;
     }
 }
 
-/* 触摸设备：取消主题按钮的悬停位移/旋转，避免点按后停留在高亮态、要点别处才还原 */
+/* 触摸设备：卡片/按钮点按后不残留悬停态（不抬升、不高亮、不旋转），
+   避免手机上出现“卡片内多出一个框 / 按钮卡住”的现象 */
 @media (hover: none), (pointer: coarse) {
+    .skill-card:hover,
+    .project-card:hover,
+    .experience-card:hover {
+        transform: none;
+        box-shadow: var(--shadow-sm);
+        border-color: var(--border);
+    }
     .theme-toggle:hover {
         transform: none;
         color: var(--text-primary);
