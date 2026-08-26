@@ -4849,12 +4849,24 @@ body::before {
     box-shadow: var(--shadow-glow);
 }
 
-/* 主题切换按钮玻璃化 */
+/* 主题切换按钮：实心高对比底色（修复移动端/深色模式下半透明玻璃底与极光背景融合、看不清的问题） */
 .theme-toggle {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-sm);
+}
+.theme-toggle:hover {
+    color: var(--purple);
+    border-color: var(--purple);
+}
+
+/* 手机端汉堡菜单按钮同样用实心底，保证与主题按钮成组、清晰可点 */
+.nav-toggle {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 10px;
 }
 
 /* 尊重减弱动效偏好 */
