@@ -4537,3 +4537,326 @@ body.menu-open {
         font-size: 1.05rem;
     }
 }
+
+/* ════════════════════════════════════════════════════════════════
+   大胆潮流版样式（BOLD REDESIGN）
+   —— 本区块为独立叠加层，可整体删除以恢复原版样式 ——
+   ════════════════════════════════════════════════════════════════ */
+
+/* 注册可动画的渐变边框角度（如已注册则忽略重复） */
+@property --bd-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+:root {
+    /* 更鲜亮的潮流主色（浅色模式） */
+    --purple: #7C3AED;
+    --purple-light: #A78BFA;
+    --teal: #06B6D4;
+    --pink: #EC4899;
+    --pink-light: #F59E0B;
+    --gradient-main: linear-gradient(135deg, #7C3AED 0%, #06B6D4 100%);
+    --gradient-warm: linear-gradient(135deg, #EC4899 0%, #F59E0B 100%);
+    --gradient-full: linear-gradient(120deg, #7C3AED 0%, #06B6D4 45%, #EC4899 100%);
+    --neon-violet: rgba(124, 58, 237, .35);
+    --neon-cyan: rgba(6, 182, 212, .30);
+    --neon-pink: rgba(236, 72, 153, .30);
+    --glass-bg: rgba(255, 255, 255, .72);
+    --glass-border: rgba(124, 58, 237, .14);
+    --shadow-lg: 0 16px 40px rgba(124, 58, 237, .12), 0 4px 12px rgba(17, 24, 39, .06);
+    --shadow-xl: 0 24px 60px rgba(124, 58, 237, .18), 0 8px 20px rgba(17, 24, 39, .08);
+    --shadow-glow: 0 0 36px rgba(124, 58, 237, .28);
+}
+
+[data-theme="dark"] {
+    /* 深色模式：霓虹高饱和 */
+    --purple: #A78BFA;
+    --purple-light: #C4B5FD;
+    --teal: #22D3EE;
+    --pink: #F472B6;
+    --pink-light: #FBBF24;
+    --gradient-main: linear-gradient(135deg, #8B5CF6 0%, #22D3EE 100%);
+    --gradient-warm: linear-gradient(135deg, #F472B6 0%, #FBBF24 100%);
+    --gradient-full: linear-gradient(120deg, #8B5CF6 0%, #22D3EE 45%, #F472B6 100%);
+    --neon-violet: rgba(139, 92, 246, .55);
+    --neon-cyan: rgba(34, 211, 238, .45);
+    --neon-pink: rgba(244, 114, 182, .45);
+    --glass-bg: rgba(255, 255, 255, .045);
+    --glass-border: rgba(167, 139, 250, .22);
+    --bg: #08060F;
+    --bg-card: #12101D;
+    --bg-soft: #17142A;
+    --shadow-lg: 0 16px 44px rgba(0, 0, 0, .55), 0 0 24px rgba(139, 92, 246, .18);
+    --shadow-xl: 0 24px 60px rgba(0, 0, 0, .6), 0 0 36px rgba(139, 92, 246, .28);
+    --shadow-glow: 0 0 44px rgba(139, 92, 246, .45);
+}
+
+/* 潮流选中文本颜色 */
+::selection {
+    background: var(--purple);
+    color: #fff;
+}
+
+/* 霓虹滚动条 */
+::-webkit-scrollbar { width: 11px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb {
+    background: var(--gradient-main);
+    border-radius: 99px;
+    border: 3px solid var(--bg);
+}
+
+/* 全站动态极光背景 */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(45rem 45rem at 12% -5%, var(--neon-violet), transparent 60%),
+        radial-gradient(40rem 40rem at 105% 25%, var(--neon-cyan), transparent 55%),
+        radial-gradient(38rem 38rem at 50% 110%, var(--neon-pink), transparent 60%);
+    opacity: .55;
+    animation: aurora-shift 18s ease-in-out infinite alternate;
+}
+@keyframes aurora-shift {
+    0%   { transform: translate3d(0, 0, 0) scale(1); }
+    50%  { transform: translate3d(2%, -2%, 0) scale(1.06); }
+    100% { transform:translate3d(-2%, 2%, 0) scale(1.02); }
+}
+
+/* 渐变文字：流动 + 发光 */
+.gradient-text,
+.text-accent {
+    background: var(--gradient-full);
+    background-size: 220% 220%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: gradient-flow 6s ease infinite;
+    filter: drop-shadow(0 0 14px var(--neon-violet));
+}
+@keyframes gradient-flow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Logo 标记：渐变 + 霓虹 */
+.logo-mark {
+    background: var(--gradient-main) !important;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    filter: drop-shadow(0 0 10px var(--neon-violet));
+    font-weight: 800;
+}
+
+/* 导航栏：玻璃拟态 */
+.navbar.scrolled,
+.navbar {
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+}
+.navbar.scrolled {
+    background: var(--glass-bg);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+/* Hero 标题更大、更亮 */
+.hero-title {
+    font-weight: 800;
+    letter-spacing: -.02em;
+}
+
+/* Hero 徽章：玻璃 + 脉冲光点 */
+.hero-badge {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-glow);
+}
+.hero-badge .status-dot {
+    animation: pulse-dot 1.8s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+    0%, 100% { box-shadow: 0 0 0 0 var(--neon-cyan); }
+    50% { box-shadow: 0 0 0 7px rgba(34, 211, 238, 0); }
+}
+
+/* 数据统计数字：渐变 */
+.hero-stats .stat strong {
+    background: var(--gradient-full);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+/* 按钮：霓虹渐变 + 悬浮上浮发光 */
+.btn-primary {
+    background: var(--gradient-main);
+    background-size: 160% 160%;
+    border: none;
+    box-shadow: 0 10px 28px var(--neon-violet), 0 0 0 1px rgba(255,255,255,.06) inset;
+    transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s, background-position .5s;
+}
+.btn-primary:hover {
+    transform: translateY(-3px);
+    background-position: 100% 50%;
+    box-shadow: 0 16px 38px var(--neon-violet), 0 0 30px var(--neon-cyan);
+}
+.nav-cta,
+.btn-ghost {
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+.nav-cta:hover,
+.btn-ghost:hover {
+    transform: translateY(-2px);
+    border-color: var(--purple);
+    box-shadow: var(--shadow-glow);
+}
+
+/* 区块小标题：霓虹 kicker */
+.section-label,
+.case-page-kicker {
+    color: var(--purple);
+    font-weight: 700;
+    letter-spacing: .14em;
+}
+
+/* —— 卡片：玻璃拟态 + 悬浮渐变描边 + 上浮 —— */
+.skill-card,
+.project-card,
+.experience-card,
+.contact-card,
+.case-page-header,
+.case-page-content {
+    position: relative;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+    transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s;
+}
+.skill-card::before,
+.project-card::before,
+.experience-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.6px;
+    background: conic-gradient(from var(--bd-angle),
+        var(--purple), var(--teal), var(--pink), var(--purple));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity .4s;
+    animation: bd-spin 7s linear infinite;
+    pointer-events: none;
+}
+@keyframes bd-spin { to { --bd-angle: 360deg; } }
+
+.skill-card:hover,
+.project-card:hover,
+.experience-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl), var(--shadow-glow);
+    border-color: transparent;
+}
+.skill-card:hover::before,
+.project-card:hover::before,
+.experience-card:hover::before {
+    opacity: 1;
+}
+
+/* 卡片序号渐变 */
+.skill-num {
+    background: var(--gradient-full);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-weight: 800;
+}
+
+/* 标签：玻璃小药丸 */
+.skill-tags span,
+.project-tags span,
+.case-page-tags span {
+    background: var(--bg-soft);
+    border: 1px solid var(--glass-border);
+    border-radius: 999px;
+}
+
+/* “查看详情”链接：渐变下划线 */
+.project-toggle {
+    color: var(--purple);
+    font-weight: 600;
+}
+[data-theme="dark"] .project-toggle { color: var(--purple-light); }
+
+/* 联系方式卡片光晕 */
+.contact-card { overflow: hidden; }
+.contact-method:hover .method-icon {
+    box-shadow: var(--shadow-glow);
+    transform: scale(1.08);
+}
+.method-icon {
+    background: var(--gradient-main);
+    transition: transform .3s, box-shadow .3s;
+}
+
+/* 浮动标签卡片玻璃化 */
+.float-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* 返回顶部按钮霓虹 */
+.back-to-top.visible,
+.back-to-top:hover {
+    background: var(--gradient-main);
+    box-shadow: var(--shadow-glow);
+}
+
+/* 主题切换按钮玻璃化 */
+.theme-toggle {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* 尊重减弱动效偏好 */
+@media (prefers-reduced-motion: reduce) {
+    body::before,
+    .gradient-text, .text-accent,
+    .skill-card::before, .project-card::before, .experience-card::before,
+    .hero-badge .status-dot {
+        animation: none !important;
+    }
+}
+
+/* 移动端微调：玻璃描边在小屏减弱，避免拥挤 */
+@media (max-width: 640px) {
+    .skill-card:hover,
+    .project-card:hover,
+    .experience-card:hover {
+        transform: translateY(-4px);
+    }
+}
