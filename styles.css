@@ -4846,18 +4846,31 @@ body::before {
     }
 }
 
-/* 人物图：下载完成后整块淡入，避免 PNG 逐行“挤牙膏”式从上往下绘制 */
-.character-img-user.avatar-fade {
-    opacity: 0;
-    transform: translateY(10px) scale(.985);
-    transition: opacity .5s ease, transform .5s ease;
+/* 人物图：模糊占位(LQIP,1.5KB 内联秒显) → 清晰图淡入（blur-up），
+   既不再“挤牙膏”式逐行绘制，也不会让用户干等空白 */
+.avatar-wrap {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
 }
-.character-img-user.avatar-fade.loaded {
-    opacity: 1;
-    transform: none;
+.avatar-wrap img { display: block; max-width: 100%; }
+.avatar-lqip {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    filter: blur(12px);
+    transform: scale(1.06);
+    transition: opacity .5s ease;
+    pointer-events: none;
 }
+.avatar-wrap.img-loaded .avatar-lqip { opacity: 0; }
+.character-img-user.avatar-fade { opacity: 0; }
+.character-img-user.avatar-fade.loaded { opacity: 1; transition: opacity .55s ease; }
 @media (prefers-reduced-motion: reduce) {
-    .character-img-user.avatar-fade { opacity: 1; transform: none; transition: none; }
+    .avatar-lqip { filter: none; transform: none; transition: none; }
+    .character-img-user.avatar-fade { opacity: 1; transition: none; }
 }
 
 /* 移动端微调 */
@@ -4917,7 +4930,24 @@ body::before {
     z-index: 1;
 }
 
-/* 手机/平板：显示“向下滚动”提示，改为文档流内居中的一行，不再绝对定位 */
+/* 桌面/笔记本：隐藏绝对定位的“向下滚动”提示（会与数值条重叠），
+   并让 hero 不强制满屏、收紧竖向节奏 */
+@media (min-width: 769px) {
+    .scroll-hint { display: none; }
+    .hero {
+        min-height: auto;
+        padding: 132px 0 84px;
+        align-items: center;
+    }
+    .hero-content {
+        min-height: auto;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .section { padding: 88px 0; }
+}
+
+/* 手机/平板：在内容流末尾居中显示“向下滚动”提示，不使用绝对定位 */
 @media (max-width: 768px) {
     .hero {
         flex-direction: column;
@@ -4927,7 +4957,7 @@ body::before {
         position: static;
         transform: none;
         align-self: center;
-        margin: 22px auto 0;
+        margin: 20px auto 0;
         flex-direction: row;
         gap: 12px;
         animation: none;
@@ -4935,29 +4965,6 @@ body::before {
     .scroll-line {
         width: 34px;
         height: 1px;
-    }
-}
-
-/* 矮屏笔记本（横向、高度小）：hero 不强制满屏，避免数值条与“向下滚动”提示挤压重叠 */
-@media (min-width: 769px) and (max-height: 880px) {
-    .hero {
-        min-height: auto;
-        padding: 130px 0 70px;
-        align-items: center;
-    }
-    .hero-content {
-        min-height: auto;
-        padding-top: 0;
-        padding-bottom: 0;
-    }
-    .scroll-hint {
-        display: none;
-    }
-    .hero-stats .stat {
-        padding: 14px 18px;
-    }
-    .hero-stats .stat strong {
-        font-size: 1.7rem;
     }
 }
 
