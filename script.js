@@ -297,8 +297,10 @@ const hideLoader = () => {
     const loader = document.getElementById('loader');
     if (loader) loader.classList.add('hidden');
 };
-window.addEventListener('DOMContentLoaded', () => setTimeout(hideLoader, 350));
-window.addEventListener('load', hideLoader); // load 事件兜底
+// DOM 就绪即快速淡出，不再等待大图等资源，缩短“启动进入”时间
+window.addEventListener('DOMContentLoaded', () => setTimeout(hideLoader, 150));
+window.addEventListener('load', hideLoader); // load 事件兜底（防止极端情况下遮罩不消失）
+setTimeout(hideLoader, 2500); // 硬兜底：2.5s 后无论如何隐藏
 
 // 项目详情已迁移至 case-study.html，并在新标签页打开。
 
