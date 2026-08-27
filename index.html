@@ -110,10 +110,12 @@
                 <div class="character-wrap">
                     <!-- 人物插画（AI生成） -->
                     <div class="character-picture character-picture-user">
-                            <picture>
-                                <source media="(max-width: 768px)" srcset="hero-avatar-mobile.png">
-                                <img src="hero-avatar-opt.png" width="560" height="944" alt="邓洁的Q版人物形象" class="character-img character-img-user" fetchpriority="high" decoding="async">
-                            </picture>
+                        <picture>
+                            <source media="(max-width: 768px)" type="image/webp" srcset="hero-avatar-mobile.webp">
+                            <source media="(max-width: 768px)" srcset="hero-avatar-mobile.png">
+                            <source type="image/webp" srcset="hero-avatar.webp">
+                            <img src="hero-avatar-opt.png" width="560" height="944" alt="邓洁的Q版人物形象" class="character-img character-img-user" fetchpriority="high" decoding="async">
+                        </picture>
                         </div>
                     <!-- 浮动标签 -->
                     <div class="float-card float-card-1">
