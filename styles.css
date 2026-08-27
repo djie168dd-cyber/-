@@ -4846,31 +4846,10 @@ body::before {
     }
 }
 
-/* 人物图：模糊占位(LQIP,1.5KB 内联秒显) → 清晰图淡入（blur-up），
-   既不再“挤牙膏”式逐行绘制，也不会让用户干等空白 */
-.avatar-wrap {
-    position: relative;
-    display: inline-block;
+/* 人物图：响应式 <picture>，手机加载小图(309KB)、电脑加载大图(589KB)，打开即直接显示 */
+.character-picture-user picture {
+    display: block;
     max-width: 100%;
-}
-.avatar-wrap img { display: block; max-width: 100%; }
-.avatar-lqip {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: bottom center;
-    background-repeat: no-repeat;
-    filter: blur(12px);
-    transform: scale(1.06);
-    transition: opacity .5s ease;
-    pointer-events: none;
-}
-.avatar-wrap.img-loaded .avatar-lqip { opacity: 0; }
-.character-img-user.avatar-fade { opacity: 0; }
-.character-img-user.avatar-fade.loaded { opacity: 1; transition: opacity .55s ease; }
-@media (prefers-reduced-motion: reduce) {
-    .avatar-lqip { filter: none; transform: none; transition: none; }
-    .character-img-user.avatar-fade { opacity: 1; transition: none; }
 }
 
 /* 移动端微调 */
