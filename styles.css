@@ -4963,3 +4963,53 @@ body::before {
         border-color: var(--border);
     }
 }
+
+/* ============================================
+   工作经历：要点列表（拆分密集段落）
+   ============================================ */
+.exp-summary p { margin: 0 0 16px; }
+.exp-bullets {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+}
+.exp-bullets li {
+    position: relative;
+    padding-left: 24px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+}
+.exp-bullets li::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 11px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--gradient-main);
+}
+.exp-bullets li strong { color: var(--text-primary); font-weight: 600; }
+
+/* ============================================
+   微信号一键复制按钮（与联系方式条目同外观）
+   ============================================ */
+button.contact-method-copy {
+    width: 100%;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    color: inherit;
+}
+.copy-hint {
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-left: 6px;
+}
+.copy-hint.copied {
+    color: var(--teal);
+    font-weight: 600;
+}
